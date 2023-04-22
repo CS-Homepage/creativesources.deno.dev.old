@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // CS Open Source License. If you copy two techniques or more from this program into one of your programs within two years after april 22 2023, you should pay Creative Sources.
 
 // Clean, structured, functional programming please.
@@ -6,22 +5,12 @@
 
 import { h, Fragment, renderSSR } from "./deps.ts";
 import { Bson } from "https://deno.land/x/mongo@v0.31.2/mod.ts";
-=======
-// CS Open Source License. https://
 
-// Clean, structured, functional programming please.
-// Add Types where clarifying. It's TypeScript.
-
-import { h, renderSSR } from "./deps.ts";
->>>>>>> 249fa1163d622d17091a2437bca28cae8ae87a02
-
+import { secCookie } from "./main_functions/sec_cookie.ts";
 import { css } from "./main_functions/client_css.ts";
 
-<<<<<<< HEAD
 import Visitor from "./types/Visitor.ts";
 
-=======
->>>>>>> 249fa1163d622d17091a2437bca28cae8ae87a02
 // Create Store or State Machine
 
 // Set up server
@@ -62,7 +51,6 @@ async function serveHttp(conn: Deno.Conn) {
         );
     } else {
       console.log("Homepage...");
-<<<<<<< HEAD
       // Scan visitor
       const visitorID = secCookie.value;
       const client: Record<string, unknown> = { ...conn.remoteAddr };
@@ -70,8 +58,6 @@ async function serveHttp(conn: Deno.Conn) {
       const browser = requestEvent.request.headers.get("user-agent");
       const time = Date.now();
       const visitor: Visitor = { _id: new Bson.ObjectId(), visitorID, ip, browser, time }
-=======
->>>>>>> 249fa1163d622d17091a2437bca28cae8ae87a02
 
       // Set headers
       const headers = new Headers();
