@@ -5,7 +5,6 @@ import { secCookie } from "../main_functions/sec_cookie.ts";
 export function Screening() {
   console.log("Screening...");
 
-<<<<<<< HEAD
   const home = document.getElementById("homepage")
   if (home) {
     home.style.padding = "10px";
@@ -38,20 +37,6 @@ export function Screening() {
           }, 132 * i);
           i++;
         }
-=======
-  function animate() {
-    console.log("Animate...");
-
-    const screening = document.getElementById("screening");
-    console.log(screening);
-    if (screening) {
-      const msg: string[] = Array.from("Welcome to the CS Deno Server v1.0\n");
-      let text = "";
-      for (const char of msg) {
-        text += char;
-        console.log(text);
-        screening.innerText = text;
->>>>>>> 249fa1163d622d17091a2437bca28cae8ae87a02
       }
     }
     
