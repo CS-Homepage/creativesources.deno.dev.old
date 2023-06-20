@@ -651,17 +651,6 @@ class Store {
         };
     }
 }
-<<<<<<< HEAD
-function Background() {
-    console.log("Background started...");
-    return h("div", {
-        id: "background"
-    }, h("p", {
-        style: "font-size: 34px;"
-    }, "MATRIX"));
-}
-=======
->>>>>>> 249fa1163d622d17091a2437bca28cae8ae87a02
 function Intro() {
     console.log("Intro...");
     return h("img", {
@@ -669,7 +658,6 @@ function Intro() {
         src: "artwork/cs.png"
     });
 }
-<<<<<<< HEAD
 function bytesToUuid(bytes) {
     const bits = [
         ...bytes
@@ -712,22 +700,6 @@ function generate(options, buf, offset) {
         }
         if (clockseq === undefined) {
             clockseq = _clockseq = (seedBytes[6] << 8 | seedBytes[7]) & 0x3fff;
-=======
-function Screening() {
-    console.log("Screening...");
-    function animate() {
-        console.log("Animate...");
-        const screening = document.getElementById("screening");
-        console.log(screening);
-        if (screening) {
-            const msg = Array.from("Welcome to the CS Deno Server v1.0\n");
-            let text = "";
-            for (const __char of msg){
-                text += __char;
-                console.log(text);
-                screening.innerText = text;
-            }
->>>>>>> 249fa1163d622d17091a2437bca28cae8ae87a02
         }
     }
     let { msecs =new Date().getTime() , nsecs =_lastNSecs + 1  } = options;
@@ -776,62 +748,89 @@ function Screening() {
     if (home) {
         home.style.padding = "10px";
         home.style.textAlign = "left";
+        home.style.fontSize = "18px";
+        home.style.color = "green";
     }
     async function Animate() {
         console.log("Animate...");
         const html1 = "<span style='color:white;'>";
-        const array1 = Array.from("Welcome to the CS Deno Server v1.");
+        const array1 = Array.from("Welcome to the CS Deno Server v1.0");
         const html2 = "</span><br /><br />";
         const array2 = Array.from("If you proceed:");
         const nextLine = "<br />";
         const array3 = Array.from("You accept one cookie, visitorID: ");
         const html3 = "<span style='color:yellow;'>";
         const visitorID = Array.from(secCookie.value);
-        const html5 = "</span><br />";
+        const html4 = "</span><br />";
         const array4 = Array.from("We store your browser and IP.");
         const array5 = Array.from("Proceed? (Y/N)");
+        const array = [
+            html1
+        ].concat(array1).concat([
+            html2
+        ]).concat(array2).concat([
+            nextLine
+        ]).concat(array3).concat([
+            html3
+        ]).concat(visitorID).concat([
+            html4
+        ]).concat(array4).concat([
+            nextLine,
+            nextLine
+        ]).concat(array5);
         async function typeText(array) {
             if (home) {
                 let i = 0;
+                let text = "";
                 for await (const __char of array){
                     setTimeout(()=>{
                         text += __char;
                         console.log(text);
                         home.innerHTML = text;
-                    }, 132 * i);
+                    }, 113 * i);
                     i++;
                 }
             }
         }
-        function setHTML(html) {
-            if (home) {
-                text += html;
-                console.log(text);
-                home.innerHTML = text;
-            }
-        }
-        async function main() {
-            setHTML(html1);
-            await typeText(array1).then(()=>setHTML(html2)).then(()=>typeText(array2)).then(()=>setHTML(nextLine)).then(()=>typeText(array3));
-            setHTML(html3);
-            await typeText(visitorID);
-            setHTML(html5);
-            await typeText(array4);
-            setHTML(nextLine);
-            await typeText(array5);
-        }
-        let text = "";
-        await main();
+        await typeText(array);
     }
     return h(Animate, null);
 }
+function Matrix() {
+    console.log("Matrix started...");
+    const bg = document.getElementById("bg");
+    const div = document.createElement("div");
+    div.id = "matrix";
+    let n = 0;
+    let value;
+    while(n < 80){
+        const column = document.createElement("div");
+        column.classList.add("column");
+        column.classList.add(`col-${++n}`);
+        div.appendChild(column);
+        let i = 0;
+        while(i < 50){
+            console.log("GLYPH");
+            ++i;
+            value = Math.floor(Math.random() * 255) + 10240;
+            const span = document.createElement("span");
+            const glyph = document.createTextNode(`&#${value};`);
+            span.appendChild(glyph);
+            column.appendChild(span);
+        }
+    }
+    console.log(div);
+    if (bg) bg.appendChild(div);
+    console.log(bg);
+}
 function Background() {
     console.log("Background started...");
-    return h("p", {
-        style: "font-size: 34px;"
-    }, "MATRIX");
+    return h("div", {
+        id: "bg"
+    }, h(Matrix, null));
 }
 const home = document.getElementById('homepage');
+const bg = document.getElementById('bg');
 function startScreening() {
     hydrate(h(Screening, null), home);
 }
@@ -841,6 +840,7 @@ function proceedOrNot(ev) {
 }
 function proceed() {
     hydrate(h(Background, null), home);
+    hydrate(h(Matrix, null), bg);
     document.removeEventListener("keydown", proceedOrNot);
 }
 function exitScreening() {

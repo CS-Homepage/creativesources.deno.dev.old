@@ -8,6 +8,7 @@ import { Bson } from "https://deno.land/x/mongo@v0.31.2/mod.ts";
 
 import { secCookie } from "./main_functions/sec_cookie.ts";
 import { css } from "./main_functions/client_css.ts";
+import { matrix } from "./main_functions/matrix_css.ts";
 
 import Visitor from "./types/Visitor.ts";
 
@@ -81,6 +82,7 @@ async function serveHttp(conn: Deno.Conn) {
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>CS Deno Server</title>
           <style>${css}</style>
+          <style>${matrix}</style>
         </head>
         <body>
           ${homepage}

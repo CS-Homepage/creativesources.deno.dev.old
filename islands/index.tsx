@@ -3,16 +3,14 @@ import { h, hydrate } from '../deps.ts';
 import { Intro } from "../components/Intro.tsx";
 import { Screening } from "../components/Screening.tsx";
 import { Background } from '../components/Background.tsx';
+import Matrix from '../components/Matrix.tsx';
 
 // Divz
 const home = document.getElementById('homepage');
+const bg = document.getElementById('bg');
 
 // Client Functions
-<<<<<<< HEAD
 function startScreening() {
-=======
-function screening() {
->>>>>>> 249fa1163d622d17091a2437bca28cae8ae87a02
     hydrate(<Screening />, home);
 }
 
@@ -23,6 +21,7 @@ function proceedOrNot(ev: KeyboardEvent) {
 
 function proceed() {
     hydrate(<Background />, home);
+    hydrate(<Matrix />, bg);
     document.removeEventListener("keydown", proceedOrNot);
 }
 

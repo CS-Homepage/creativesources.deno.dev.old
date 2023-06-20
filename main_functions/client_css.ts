@@ -1,30 +1,16 @@
 export const css = `
 body {
-    margin: 0;
-    font-family: monospace;
-    font-size: 18px;
-    background: black;
-}
-
-#intro {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0px;
-  text-align: center;
-  z-index: 31;
+  background: black;
 }
 
 #homepage {
-  color: green;
+  font-family: monospace;
   position: fixed;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   margin: 0px;
   text-align: center;
-  z-index: 31;
 }
 
 @keyframes pulse {
@@ -53,18 +39,5 @@ body {
 .transition {
     animation: pulse 9s 1;
     position: relative;
-}
-
-#background {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    margin: 0px;
-    z-index: 33;
-    background: black;
-    color: #FFFFFF;
-    text-align: center;
-    line-height: 100vh;
 }
 `;
