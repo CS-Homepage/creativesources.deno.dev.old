@@ -22,13 +22,13 @@ export default function Matrix() {
       ++i;
       value = Math.floor(Math.random() * 255) + 10240;
       const span = document.createElement("span");
-      const glyph = document.createTextNode(`&#${value};`);
+      const glyph = document.createTextNode(`&#${value};`); // Yandeu: Dangerous HTML?
       span.appendChild(glyph);
       column.appendChild(span);
     }
   }
 
   console.log(div);
-  if (bg) bg.appendChild(div); // Why doesn't this work ???
+  if (bg) bg.appendChild(div);
   console.log(bg);
 }
