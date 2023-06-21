@@ -1,10 +1,12 @@
-# Creative Sources Homepage with Nano JSX
+# Creative Sources Homepage
 
-This repo is a demonstration of what you can do with just Deno and Nano JSX. I think it blew up the Deno V8 engine...
+This repo is the private Master branch of https://creativesources.deno.dev, later to become https://creativesources.io. I need help:
+1. How do we put Master on Main later?
+2. Nano JSX is cool. But better preact/ Fresh?
+3. Next issue is state. What path to take?
 
+INSTALLATION:
 1. Please clone repo for local use, with latest Deno and VS Code Deno extension installed (on Arch Linux).
-2. Get the missing files fom .gitignore
-3. $ deno bundle ./islands/index.tsx ./islands/bundle.js again if you want to.
-4. $ deno task start
-5. Access website on localhost:60999
-6. Please star this repository.
+2. $ deno bundle ./islands/index.tsx ./islands/bundle.js again if you want to.
+3. $ deno task start
+4. Access website on localhost:60999
