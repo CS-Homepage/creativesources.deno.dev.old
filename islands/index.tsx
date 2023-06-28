@@ -4,6 +4,7 @@ import { Intro } from "../components/Intro.tsx";
 import { Screening } from "../components/Screening.tsx";
 import { Background } from '../components/Background.tsx';
 import Matrix from '../components/Matrix.tsx';
+import Banner from '../components/Banner.tsx';
 
 // Divz
 const home = document.getElementById('homepage');
@@ -22,6 +23,7 @@ function proceedOrNot(ev: KeyboardEvent) {
 function proceed() {
     hydrate(<Background />, home);
     hydrate(<Matrix />, bg);
+    hydrate(<Banner />, bg);
     document.removeEventListener("keydown", proceedOrNot);
 }
 

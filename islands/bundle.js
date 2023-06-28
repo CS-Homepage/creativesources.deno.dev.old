@@ -785,9 +785,8 @@ function Screening() {
                 for await (const __char of array){
                     setTimeout(()=>{
                         text += __char;
-                        console.log(text);
                         home.innerHTML = text;
-                    }, 113 * i);
+                    }, 99 * i);
                     i++;
                 }
             }
@@ -795,6 +794,12 @@ function Screening() {
         await typeText(array);
     }
     return h(Animate, null);
+}
+function Background() {
+    console.log("Background started...");
+    return h("div", {
+        id: "bg"
+    });
 }
 function Matrix() {
     console.log("Matrix started...");
@@ -819,15 +824,30 @@ function Matrix() {
             column.appendChild(span);
         }
     }
-    console.log(div);
     if (bg) bg.appendChild(div);
-    console.log(bg);
 }
-function Background() {
-    console.log("Background started...");
-    return h("div", {
-        id: "bg"
-    }, h(Matrix, null));
+function Banner() {
+    console.log("Banner started...");
+    const bg = document.getElementById("bg");
+    const banner = document.createElement("div");
+    banner.id = "banner";
+    const txt = document.createElement("img");
+    txt.src = "artwork/background-banner.png";
+    banner.appendChild(txt);
+    if (bg) bg.appendChild(banner);
+    const start = Date.now();
+    const timer = setInterval(function() {
+        const timePassed = Date.now() - start;
+        if (timePassed >= 23000) {
+            clearInterval(timer);
+            console.log("Banner stopped...");
+            return;
+        }
+        draw(timePassed);
+    }, 19);
+    function draw(timePassed) {
+        banner.style.left = 2000 - timePassed / 5 + 'px';
+    }
 }
 const home = document.getElementById('homepage');
 const bg = document.getElementById('bg');
@@ -841,6 +861,7 @@ function proceedOrNot(ev) {
 function proceed() {
     hydrate(h(Background, null), home);
     hydrate(h(Matrix, null), bg);
+    hydrate(h(Banner, null), bg);
     document.removeEventListener("keydown", proceedOrNot);
 }
 function exitScreening() {

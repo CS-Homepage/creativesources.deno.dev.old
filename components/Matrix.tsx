@@ -7,10 +7,10 @@ export default function Matrix() {
 
   const div = document.createElement("div");
   div.id = "matrix";
-    
+
   let n = 0;
   let value: number;
- 
+
   while (n < 80) {
     const column = document.createElement("div");
     column.classList.add("column");
@@ -28,7 +28,5 @@ export default function Matrix() {
     }
   }
 
-  console.log(div);
   if (bg) bg.appendChild(div);
-  console.log(bg);
 }

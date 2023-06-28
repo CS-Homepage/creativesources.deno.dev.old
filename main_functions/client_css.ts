@@ -13,6 +13,19 @@ body {
   text-align: center;
 }
 
+#bg {
+  padding: 0px;
+  text-align: center;
+  font-size: 3em;
+  color: darken(green, 20%);
+}
+
+#banner {
+  position: absolute;
+  z-index: 1;
+  top: 50vh;
+}
+
 @keyframes pulse {
   0% {
     opacity: 0;

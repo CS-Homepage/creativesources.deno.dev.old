@@ -1,11 +1,4 @@
 export const matrix = `
-#bg {
-  padding: 0px;
-  text-align: center;
-  font-size: 3em;
-  color: darken(green, 20%);
-}
-
 #matrix {
     display: flex;
     width: 100vw;

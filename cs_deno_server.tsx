@@ -39,10 +39,16 @@ async function serveHttp(conn: Deno.Conn) {
       requestEvent.respondWith(new Response(logo, { headers: {
         "content-type": "image/png",}
       }),);
+    } else if (reqPath == "/artwork/background-banner.png") {
+      console.log("Background Banner...");
+      const banner = await Deno.readFile("./artwork/background-banner.png");
+      requestEvent.respondWith(new Response(banner, { headers: {
+        "content-type": "image/png",}
+      }),);
     } else if (reqPath == "/favicon.ico") {
       console.log("Favicon...");
-      const logo = await Deno.readFile("./artwork/favicon.ico");
-      requestEvent.respondWith(new Response(logo, { headers: {
+      const fav = await Deno.readFile("./artwork/favicon.ico");
+      requestEvent.respondWith(new Response(fav, { headers: {
         "content-type": "image/x-icon",}
       }),);
     } else if (reqPath !== "/") {

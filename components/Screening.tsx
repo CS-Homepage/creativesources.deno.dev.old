@@ -37,9 +37,8 @@ export function Screening() {
         for await (const char of array) {
           setTimeout(()=>{
             text += char;
-            console.log(text);
             home.innerHTML = text;
-          }, 113 * i);
+          }, 99 * i);
           i++;
         }
       }
